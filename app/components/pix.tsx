@@ -27,7 +27,7 @@ function PixModal({ isOpen, onClose, title, cnpj, chaveAleatoria, chavePrivada }
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-black text-black">{title}</DialogTitle>
                 </DialogHeader>
-                <div className="space-y-4">
+                <div className="space-y-4 flex flex-col ">
                     {cnpj && (
                         <PixField label="CNPJ" value={cnpj} />
                     )}
@@ -35,8 +35,32 @@ function PixModal({ isOpen, onClose, title, cnpj, chaveAleatoria, chavePrivada }
                         <PixField label="Chave Aleatória" value={chaveAleatoria} />
                     )}
                     {chavePrivada && (
-                        <PixField label="Chave Privada" value={chavePrivada} />
+                        <PixField label="Chave Aleatória" value={chavePrivada} />
                     )}
+                    {chavePrivada && (
+                        <div className='w-full flex justify-center '>
+                            <Image
+                                src={`/qr_pix_pf.png`}
+                                alt="QR Code"
+                                width={256}
+                                height={256}
+                                className='p-2 bg-white shadow-lg rounded-lg'
+                            />
+                        </div >
+                    )}
+                    {
+                        cnpj && (
+                            <div className='w-full flex justify-center '>
+                                <Image
+                                    src={`/qr_pix_pj.png`}
+                                    alt="QR Code"
+                                    width={256}
+                                    height={256}
+                                    className='p-2 bg-white shadow-lg rounded-lg'
+                                />
+                            </div>
+                        )
+                    }
                 </div>
             </DialogContent>
         </Dialog>
@@ -98,10 +122,6 @@ export default function CodigosPix() {
     const cnpjText = "57.817.708/0001-57"
     const chaveAleatoria = "3a51f1be-921f-467c-9702-5861a6b12815"
     const chavePrivada = "19d3c380-90ce-478e-95d4-a856ed8023e7"
-
-    const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text)
-    }
 
     useEffect(() => {
         const timer = setInterval(() => {
