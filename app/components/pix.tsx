@@ -139,7 +139,7 @@ export default function CodigosPix() {
             <div className="bg-red-600 p-4 text-white text-center font-bold flex items-center justify-center">
                 <Clock className="mr-2" />
                 <span>{formatTime(currentTime)}</span>
-                <span className="ml-2">Texto incrível com a hora atual!</span>
+                <span className="ml-2">Horário atual!</span>
             </div>
             <header className="bg-black bg-opacity-30 p-4 text-white font-bold flex flex-col items-center justify-between">
                 <div className="flex items-center space-x-4">
